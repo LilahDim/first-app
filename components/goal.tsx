@@ -7,12 +7,11 @@ type GoalProps = {
 };
 
 export default function Goal({ title, removeGoalHandler, id }: GoalProps) {
-  console.log(id);
   return (
     <TouchableOpacity activeOpacity={0.55} style={styles.container}>
       <Text> {title} </Text>
       <Pressable style={styles.button} onPress={() => removeGoalHandler(id)}>
-        -
+        <Text> - </Text>
       </Pressable>
     </TouchableOpacity>
   );
