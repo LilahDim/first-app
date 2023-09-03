@@ -10,17 +10,21 @@ const GoalList = ({ goals, removeGoalhandler }: GoalListProps) => {
   return (
     <View>
       <Text style={styles.list}>Goal List</Text>
-      <FlatList
-        data={goals}
-        keyExtractor={(item) => item.key}
-        renderItem={({ item }) => (
-          <Goal
-            id={item.key}
-            title={item.title}
-            removeGoalHandler={removeGoalhandler}
-          />
-        )}
-      />
+      {goals.length ? (
+        <FlatList
+          data={goals}
+          keyExtractor={(item) => item.key}
+          renderItem={({ item }) => (
+            <Goal
+              id={item.key}
+              title={item.title}
+              removeGoalHandler={removeGoalhandler}
+            />
+          )}
+        />
+      ) : (
+        <Text> You have no goals currently</Text>
+      )}
     </View>
   );
 };
